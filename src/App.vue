@@ -10,6 +10,10 @@ export default {
   //   const res = await registerAPI()
   //   console.log(res);
   // }
+  created(){
+    // 调取vuex中用户信息
+    // this.$store.dispatch('getUserInfoActions')
+  }
 }
 </script>
 <style lang="less">
