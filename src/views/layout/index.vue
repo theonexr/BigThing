@@ -38,14 +38,14 @@
           <span>欢迎{{ nickname || username }}</span>
         </div>
         <!-- 侧边栏导航-菜单 -->
-        <!-- default-active:当前激活菜单的el-submenu index 
+        <!-- default-active:当前激活菜单高亮el-submenu index 
          @open：submenu展开的回调
          @close：submenu关闭的回调
          active-text-color:激活时的文字颜色
          unique-opened:一次只展开一个
         -->
         <el-menu
-          default-active="/home"
+          :default-active="$route.path"
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
@@ -70,8 +70,9 @@
               <el-menu-item v-for="obj,index in item.children" :key="index" :index="obj.indexPath">
                 <i :class="obj.icon"></i>
                 <span>{{obj.title}}</span>
-              </el-menu-item>
+              </el-menu-item>           
             </el-submenu>
+
           </template>
         </el-menu>
       </el-aside>

@@ -15,6 +15,22 @@ const routes = [
         // 侧边栏导航
         path:'home',
         component:() => import('@/views/home')
+      },
+      {
+        path:'user-Info',
+        component:() => import('@/views/user/userInfo')
+      },
+      {
+        path:'user-avatar',
+        component:() => import('@/views/user/userAvatar')
+      },
+      {
+        path:'user-Pwd',
+        component:() => import('@/views/user/userPwd')
+      },
+      {
+        path:'art-cate',
+        component:() => import('@/views/article/article')
       }
     ]
   },

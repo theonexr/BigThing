@@ -1,5 +1,7 @@
 <template>
   <div class="login-container">
+    <!-- <background1></background1> -->
+    <star></star>
     <div class="loginbox">
       <div class="title-box"></div>
       <el-form :model="loginForm" :rules="loginRules" ref="loginRef">
@@ -29,10 +31,34 @@
 </template>
 
 <script>
+import star from "@/components/star.vue";
+//  import background1 from '@/components/background1.vue';
+//  import card from '../components/card.vue';
+//  import dylogo from '../components/dylogo.vue';
+//  import bird from '../components/bird.vue';
+//  import Conav from '../components/Conav.vue'
+//  import ThreeDcard from '../components/ThreeDcard.vue'
+//  import swiper from '../components/swiper.vue';
+//  import environmentCss from "../components/environmentCss.vue"
+//  import photo from '../components/photo.vue';
+//  import TheMatrix from "../components/canvas/TheMatrix.vue"
 import { loginAPI } from "@/api";
 import { mapMutations } from "vuex";
 export default {
   name: "login",
+  components: {
+    star,
+    // background1,
+    // card,
+    // dylogo,
+    // bird,
+    // Conav,
+    // ThreeDcard,
+    // swiper,
+    // environmentCss,
+    // photo,
+    // TheMatrix,
+  },
   data() {
     return {
       loginForm: {
@@ -60,20 +86,19 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(['updateToken']),
-     loginFn() {
-      this.$refs.loginRef.validate(async valid => {
+    ...mapMutations(["updateToken"]),
+    loginFn() {
+      this.$refs.loginRef.validate(async (valid) => {
         if (valid) {
-          const { data: res } = await loginAPI(this.loginForm)
+          const { data: res } = await loginAPI(this.loginForm);
           if (res.code === 0) {
-            this.$message.success(res.message)
-            this.updateToken(res.token)
+            this.$message.success(res.message);
+            this.updateToken(res.token);
 
-            this.$router.push('/')
+            this.$router.push("/");
           } else {
-            this.$message.error(res.message)
+            this.$message.error(res.message);
           }
-          
         }
       });
     },
