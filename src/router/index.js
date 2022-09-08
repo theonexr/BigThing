@@ -31,6 +31,10 @@ const routes = [
       {
         path:'art-cate',
         component:() => import('@/views/article/article')
+      },
+      {
+        path:'art-list',
+        component:() => import('@/views/article/artlist')
       }
     ]
   },
@@ -42,6 +46,7 @@ const routes = [
     path: '/login',
     component: () => import('@/views/login')
   },
+  
 
   // {
   //   path: '/about',
